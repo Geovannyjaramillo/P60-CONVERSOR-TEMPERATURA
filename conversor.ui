@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Conversor</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(52, 101, 164);</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
@@ -21,10 +24,21 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLCDNumber" name="lcdNumber"/>
+       <widget class="QLCDNumber" name="outCent">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(237, 212, 0);</string>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QDial" name="dial"/>
+       <widget class="QDial" name="intCent">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(238, 238, 236);</string>
+        </property>
+        <property name="minimum">
+         <number>-18</number>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -36,10 +50,21 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLCDNumber" name="lcdNumber_2"/>
+       <widget class="QLCDNumber" name="outFahr">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(245, 121, 0);</string>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QDial" name="dial_2"/>
+       <widget class="QDial" name="inFahr">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(238, 238, 236);</string>
+        </property>
+        <property name="maximum">
+         <number>210</number>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -47,5 +72,38 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>intCent</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>outCent</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inFahr</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>outFahr</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>331</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
