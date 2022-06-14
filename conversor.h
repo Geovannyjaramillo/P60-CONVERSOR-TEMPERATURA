@@ -14,9 +14,12 @@ class Conversor : public QDialog
 public:
     Conversor(QWidget *parent = nullptr);
     ~Conversor();
+
 public slots:
-    void cent2fahr(int grados); //de centigrados a fare (centigrados 2=to fareh)
-    void fareh2cent(int grados); // de fareh a centigrados
+    void cent2fahr2kelv(int grados);
+    void fahr2cent2kelv(int grados);
+    void kelv2cent2fahr(int grados);
+
 private:
     Ui::Conversor *ui;
 };
